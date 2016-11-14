@@ -2,8 +2,6 @@ package iwcn_practicas.practica1;
 
 import java.util.List;
 
-import javax.naming.AuthenticationException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -17,7 +15,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	@Autowired
 	private UserRepository userRepository;
 	@Override
-	public Authentication authenticate(Authentication authentication) throws AuthenticationException{
+	public Authentication authenticate(Authentication authentication) throws BadCredentialsException{
 		String username=authentication.getName();
 		String password=(String)authentication.getCredentials();
 		User user=userRepository.findByUser(username);
@@ -29,5 +27,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 		}
 		List<GrantedAuthority> roles = user.getRoles();
 		return new UsernamePasswordAuthenticationToken(username, password, roles);
+	}
+	@Override
+	public boolean supports(Class<?> arg0) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
