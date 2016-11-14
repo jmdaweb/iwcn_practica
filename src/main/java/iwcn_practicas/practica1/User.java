@@ -21,10 +21,12 @@ public class User{
 	private String password;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<GrantedAuthority> roles;
+	private String email;
 	public User(){}
-	public User(String user, String password, List<GrantedAuthority> roles){
+	public User(String user, String password, String email, List<GrantedAuthority> roles){
 		this.user=user;
 		this.password=new BCryptPasswordEncoder().encode(password);
+		this.email=email;
 		this.roles=roles;
 	}
 	public String getUser(){
@@ -47,5 +49,11 @@ public class User{
 	}
 	public String getPasswordHash(){
 		return password;
+	}
+	public String getEmail(){
+		return email;
+	}
+	public void setEmail(String email){
+		this.email=email;
 	}
 }
