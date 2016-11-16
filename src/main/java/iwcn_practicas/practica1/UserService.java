@@ -36,7 +36,7 @@ public class UserService{
 		u.setUser(nombre);
 		u.setPassword(clave);
 		u.setEmail(email);;
-		u.setRoles(roles);;
+		u.setRoles(roles);
 		usuarios.save(u);
 	}
 	public static boolean isAdmin(){
