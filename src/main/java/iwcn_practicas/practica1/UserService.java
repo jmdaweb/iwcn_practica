@@ -5,7 +5,10 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -35,5 +38,13 @@ public class UserService{
 		u.setEmail(email);;
 		u.setRoles(roles);;
 		usuarios.save(u);
+	}
+	public static boolean isAdmin(){
+		boolean admin=false;
+		Authentication auth = SecurityContextHolder .getContext().getAuthentication();
+		if (auth.getAuthorities().contains( new SimpleGrantedAuthority("ROLE_ADMIN"))){
+			admin=true;
+		}
+		return admin;
 	}
 }
