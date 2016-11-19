@@ -1,0 +1,55 @@
+/******************
+
+LOGIN PAGE STYLES
+
+******************/
+.login-page {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: url("/images/login_background.jpg");
+    background-size:cover;
+}
+
+.login-container {
+    background-color: #F7F7F7;
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    max-width: 350px;
+    padding: 40px 40px;
+}
+
+.form-login input,
+.form-login button {
+    margin-bottom: 10px;
+}
+
+.btn-login {
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+
+
+/******************
+
+GENERIC COMPONENTS
+
+******************/
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+
+
+
+
