@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: practica1
 Implementation-Version: 1.0.0
-Built-By: jmdaweb
+Built-By: angel
 Implementation-Vendor-Id: iwcn_practicas
 Class-Path: hamcrest-core-1.3.jar spring-boot-starter-thymeleaf-1.2.7.
  RELEASE.jar spring-boot-starter-1.2.7.RELEASE.jar spring-boot-1.2.7.R
@@ -51,7 +51,7 @@ Class-Path: hamcrest-core-1.3.jar spring-boot-starter-thymeleaf-1.2.7.
  .jar selenium-safari-driver-2.48.2.jar selenium-support-2.48.2.jar we
  bbit-0.4.14.jar netty-3.5.2.Final.jar selenium-leg-rc-2.48.2.jar retr
  ofit-1.9.0.jar gson-2.3.1.jar
-Build-Jdk: 1.8.0_102
+Build-Jdk: 1.8.0_111
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
 Main-Class: iwcn_practicas.practica1.SpringMvcThymeleafApp
