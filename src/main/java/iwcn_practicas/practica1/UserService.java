@@ -18,25 +18,34 @@ public class UserService{
 	private UserRepository usuarios;
 	public List<GrantedAuthority> ROL_USUARIO;
 	public List<GrantedAuthority> ROL_ADMIN;
+	
 	@PostConstruct
 	private void init(){
 		GrantedAuthority[] userRoles={new SimpleGrantedAuthority("ROLE_USER")};
 		ROL_USUARIO=Arrays.asList(userRoles);
+		this.usuarios.save(new User("user", "user", "usuario@test.com", ROL_USUARIO));
+		
 		GrantedAuthority[] adminRoles={new SimpleGrantedAuthority("ROLE_USER"), new SimpleGrantedAuthority("ROLE_ADMIN")};
 		ROL_ADMIN=Arrays.asList(adminRoles);
+		this.usuarios.save(new User("admin", "admin", "admin@test.com", ROL_ADMIN));
 	}
+	
 	public void agregar(String nombre, String clave, String email, List<GrantedAuthority> roles){
 		usuarios.save(new User(nombre, clave, email, roles));
 	}
+	
 	public void eliminar(long id){
 		usuarios.delete(id);;
 	}
+	
 	public Iterable<User> listar(){
 		return usuarios.findAll();
 	}
+	
 	public User getUser(long id){
 		return usuarios.findOne(id);
 	}
+	
 	public void actualizar(long id, String nombre, String clave, String email, List<GrantedAuthority> roles){
 		User u=getUser(id);
 		u.setUser(nombre);
@@ -45,6 +54,7 @@ public class UserService{
 		u.setRoles(roles);
 		usuarios.save(u);
 	}
+	
 	public static boolean isAdmin(){
 		//comprueba si el usuario actual es administrador
 		boolean admin=false;
@@ -54,6 +64,7 @@ public class UserService{
 		}
 		return admin;
 	}
+	
 	public boolean isAdmin(long id){
 		//comprueba si el usuario especificado es administrador
 		boolean admin=false;
