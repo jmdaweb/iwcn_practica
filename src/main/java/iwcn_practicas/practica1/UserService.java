@@ -23,11 +23,14 @@ public class UserService{
 	private void init(){
 		GrantedAuthority[] userRoles={new SimpleGrantedAuthority("ROLE_USER")};
 		ROL_USUARIO=Arrays.asList(userRoles);
-		this.usuarios.save(new User("user", "user", "usuario@test.com", ROL_USUARIO));
 		
 		GrantedAuthority[] adminRoles={new SimpleGrantedAuthority("ROLE_USER"), new SimpleGrantedAuthority("ROLE_ADMIN")};
 		ROL_ADMIN=Arrays.asList(adminRoles);
-		this.usuarios.save(new User("admin", "admin", "admin@test.com", ROL_ADMIN));
+		
+		//Si no hay usuarios crear
+		if (this.usuarios.count() == 0) {
+			this.usuarios.save(new User("admin", "admin", "admin@test.com", ROL_ADMIN));
+		}
 	}
 	
 	public void agregar(String nombre, String clave, String email, List<GrantedAuthority> roles){
