@@ -52,7 +52,7 @@ public class PeliculaController{
 	@Secured({"ROLE_ADMIN"})
 	@RequestMapping("/peliculas/buscar/resultados")
 	public ModelAndView buscar(@RequestParam String consulta){
-		//Hay que hacer cosas con el cliente retrofit
-		return new ModelAndView("template_buscar");
+		ImdbClient cliente=new ImdbClient();
+		return new ModelAndView("template_buscar").addObject("resultados", cliente.buscar(consulta));
 	}
 }
