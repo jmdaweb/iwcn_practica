@@ -1,9 +1,11 @@
 package iwcn_practicas.practica1;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Imdb_pelicula{
+	@Id
 	private String id;
 	private String title;
 	private String year;
