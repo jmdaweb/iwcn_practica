@@ -14,12 +14,31 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	public CustomAuthenticationProvider authenticationProvider;
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/").permitAll().anyRequest().authenticated();
+		/*http.authorizeRequests().antMatchers("/").permitAll().anyRequest().authenticated();
 		http.formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").defaultSuccessUrl("/home").failureUrl("/login").permitAll();
-		http.logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
+		http.logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();*/
+		// Paths that can be visited without authentication
+        http.authorizeRequests().antMatchers("/").permitAll();
+        http.authorizeRequests().antMatchers("/login").permitAll();
+        http.authorizeRequests().antMatchers("/logout").permitAll();
+
+        // Paths that cannot be visited without authentication
+        http.authorizeRequests().anyRequest().authenticated();
+
+        // Login form
+        http.formLogin().loginPage("/login");
+        http.formLogin().usernameParameter("username");
+        http.formLogin().passwordParameter("password");
+        http.formLogin().defaultSuccessUrl("/home");
+        http.formLogin().failureUrl("/login?error");
+
+        // Logout
+        http.logout().logoutUrl("/logout");
+    	http.logout().logoutSuccessUrl("/login?logout");
 	}
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-		auth.authenticationProvider(authenticationProvider);
+		System.out.println("SECURITYCONFIGURATION CONFIGURE");
+		auth.authenticationProvider(this.authenticationProvider);
 	}
 }
