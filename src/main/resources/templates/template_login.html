@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="login-page" xmlns:th="http://www.thymeleaf.org">
+<html class="login-page" xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
@@ -12,13 +12,19 @@
 	<body class="login-page">
 		<div class="container">
 	        <div class="login-container card-container">
+		<header role="banner" aria-label="cabecera">
 	        	<h1>Iniciar sesión</h1>
+		</header>
+		<main role="main" aria-label="Contenido principal">
 	        	<p>La emoción empieza aquí. ¡Inicia sesión ya!</p>
-	            <form class="form-login" method="post" th:action="@{/login}">
-	                <input type="text" id="username" name="username" class="form-control" placeholder="Usuario" required="true" autofocus="true"/>
-	                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="true"/>
+	            <form class="form-login" method="post" th:action="@{/login}" role="form">
+	<label for="username">Nombre de usuario</label>
+	                <input type="text" id="username" name="username" class="form-control" placeholder="Usuario" required="" autofocus="true"/>
+	<label for="password">Contraseña</label>
+	                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required=""/>
 	                <button class="btn btn-lg btn-primary btn-block btn-login" type="submit">Iniciar sesión</button>
 	            </form>
+	</main>
 	        </div>
 	    </div>
 		

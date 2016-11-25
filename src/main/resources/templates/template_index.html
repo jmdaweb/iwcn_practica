@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		
@@ -8,16 +8,18 @@
 		<link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 	</head>
 	<body>
-		<h1>Bienvenido a la nueva era del cine</h1>
-		
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+		<header role="banner" aria-label="cabecera">
+			<h1>Bienvenido a la nueva era del cine</h1>
+		</header>
+		<main role="main" aria-label="Contenido principal">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 		Aenean eget blandit felis. Quisque vitae ultricies diam. 
 		Cras ultrices accumsan eleifend. Donec nec lobortis ipsum, 
 		varius blandit sapien. Proin et congue nibh, vitae pulvinar mi. 
 		Vestibulum in tristique odio. Donec sed quam accumsan, hendrerit lacus non, convallis est. </p> 
 		
 		<a href="/home" class="btn btn-success">Quiero conocer más</a>
-		
+		</main>
 		<script type="text/javascript" src="../static/js/jquery.js" th:src="@{/js/jquery.js}"></script>
 		<script type="text/javascript" src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
 	</body>
