@@ -24,7 +24,11 @@ public class UserService{
 		ROL_USUARIO=Arrays.asList(userRoles);
 		GrantedAuthority[] adminRoles={new SimpleGrantedAuthority("ROLE_USER"), new SimpleGrantedAuthority("ROLE_ADMIN")};
 		ROL_ADMIN=Arrays.asList(adminRoles);
-	}
+		
+		if (!this.usuarios.findAll().iterator().hasNext()) {
+			this.usuarios.save(new User("Administrador", "admin", "admin@admin.com", ROL_ADMIN));
+		}
+	} 
 	public void agregar(String nombre, String clave, String email, List<GrantedAuthority> roles){
 		usuarios.save(new User(nombre, clave, email, roles));
 	}
