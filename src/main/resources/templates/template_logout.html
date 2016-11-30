@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Cerrar sesión</title>
+</head>
+<body>
+<header role="banner" aria-label="Cabecera">
+<h1>Cerrar sesión</h1>
+</header>
+<main role="main" aria-label="Contenido principal">
+<p>Pulsa el siguiente botón para cerrar sesión en el sitio web.</p>
+<form method="post" th:action="@{/logout}" role="form">
+<input type="submit" value="Cerrar sesión"/>
+</form>
+</main>
+</body>
+</html>

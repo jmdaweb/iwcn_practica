@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Editar usuario</title>
+</head>
+<body>
+<header role="banner" aria-label="cabecera">
+<h1>Editar usuario</h1>
+</header>
+<main role="main" aria-label="contenido principal">
+<p>Rellena los campos del siguiente formulario. Todos son obligatorios.</p>
+<form role="form" th:action="@{/users/edit/confirm}" method="post">
+<input type="hidden" name="id" th:value="${usuario.getId()}"/>
+<label for="name">Nombre</label>
+<input type="text" id="name" name="name" required="" aria-required="true" th:value="${usuario.getName()}"/>
+<label for="email">Dirección de correo electrónico</label>
+<input type="email" id="email" name="email" required="" aria-required="true" th:value="${usuario.getEmail()}"/>
+<label for="password">Contraseña</label>
+<input type="password" name="password" id="password" required="" aria-required="true"/>
+<label for="rol">Rol de usuario</label>
+<select id="rol" name="rol">
+<option value="0">Usuario estándar</option>
+<option value="1" selected="">Administrador</option>
+</select>
+<p th:if="${admin}">Este usuario es administrador. Establece su rol en administrador si quieres que siga siéndolo.</p>
+<input type="submit" value="Actualizar usuario"/>
+<a href="/users">Cancelar</a>
+</form>
+</main>
+</body>
+</html>

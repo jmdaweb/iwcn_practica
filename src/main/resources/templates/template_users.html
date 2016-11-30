@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Lista de usuarios</title>
+</head>
+<body>
+<header role="banner" aria-label="cabecera">
+<h1>Lista de usuarios</h1>
+</header>
+<main role="main" aria-label="Contenido principal">
+<p><a href="/users/add">Agregar un nuevo usuario</a></p>
+<table>
+<caption>Lista de usuarios registrados</caption>
+<thead>
+<tr>
+<th scope="col">Id</th>
+<th scope="col">Nombre</th>
+<th scope="col">Correo electrónico</th>
+<th scope="col">Opciones</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="usuario : ${usuarios}">
+<td scope="row" th:text="${usuario.getId()}"></td>
+<td th:text=${usuario.getUser()}"></td>
+<td th:text="${usuario.getEmail()}"></td>
+<td><ul>
+<li><a th:href="@{/user/edit(id=${usuario.getId()})}">Editar</a></li>
+<li><a th:href="@{/users/delete(id=${usuario.getId()})}">Eliminar</a></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</main>
+</body>
+</html>
