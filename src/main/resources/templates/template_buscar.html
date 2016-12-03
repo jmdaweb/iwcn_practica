@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Resultados de la búsqueda</title>
+<meta charset="utf-8"/>
+</head>
+<body>
+<header role="banner" aria-label="cabecera">
+<h1>Resultados de la búsqueda</h1>
+</header>
+<main role="main" aria-label="contenido principal">
+<section class="resultado" role="region" aria-label="Película" th:each="pelicula : ${peliculas}">
+<h2 th:text="${pelicula.getTitle()}"></h2>
+<dl>
+<dt>Id</dt>
+<dd th:text="${pelicula.getId()}"></dd>
+<dt>Año</dt>
+<dd th:text="${pelicula.getYear()}"></dd>
+<dt>Reparto</dt>
+<dd th:text="${pelicula.getCast()}"></dd>
+<dt>Director</dt>
+<dd th:text="${pelicula.getDirectors()}"></dd>
+<dt>Valoración</dt>
+<dd th:text="${pelicula.getRating()}"></dd>
+</dl>
+<img th:src="@{pelicula.getImage()}" alt="Imagen de la película"/>
+<p th:text="${pelicula.getDescription()}"></p>
+<form role="form" method="post" th:action="@{/peliculas/add}">
+<input type="hidden" name="nombre" th:value="${pelicula.getTitle()}"/>
+<input type="hidden" name="anio" th:value="${pelicula.getYear()}"/>
+<input type="hidden" name="director" th:value="${pelicula.getDirectors()}"/>
+<input type="hidden" name="reparto" th:value="${pelicula.getCast()}"/>
+<input type="hidden" name="descripcion" th:value="${pelicula.getDescription()}"/>
+<input type="hidden" name="valoracion" th:value="${pelicula.getRating()}"/>
+<input type="hidden" name="url_portada" th:value="${pelicula.getImage()}"/>
+<label th:for="${pelicula.getId()}">URL del streaming</label>
+<input type="text" required="" aria-required="true" name="url_streaming" th:id="${pelicula.getId()}"/>
+<input type="submit" value="Agregar esta película"/>
+</form>
+</section>
+</main>
+</body>
+</html>
