@@ -1,5 +1,29 @@
 /******************
 
+INDEX PAGE STYLES
+
+******************/
+.index-page {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: url("/images/index_background.jpg");
+    background-size:cover;
+    text-align: center;
+}
+
+h1,
+p {
+	color: #FFF;
+}
+
+.index-container {
+	padding: 10%;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.4);	
+}
+
+/******************
+
 LOGIN PAGE STYLES
 
 ******************/
@@ -16,7 +40,7 @@ LOGIN PAGE STYLES
     margin: 0 auto 25px;
     margin-top: 50px;
     max-width: 350px;
-    padding: 40px 40px;
+    padding: 40px;
 }
 
 .form-login input,
