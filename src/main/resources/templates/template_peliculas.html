@@ -24,7 +24,7 @@
 <tbody>
 <tr th:each="pelicula : ${peliculas}">
 <td scope="row" th:text="${pelicula.getId()}"></td>
-<td><a th:href="@{/pelicula(id=${pelicula.getId()})}" th:text=${pelicula.getNombre()}"></a></td>
+<td><a th:href="@{/pelicula(id=${pelicula.getId()})}" th:text="${pelicula.getNombre()}"></a></td>
 <td th:text="${pelicula.getAnio()}"></td>
 <td th:text="${pelicula.getDirector()}"></td>
 <td><ul>

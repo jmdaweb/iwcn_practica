@@ -23,7 +23,7 @@
 <tbody>
 <tr th:each="usuario : ${usuarios}">
 <td scope="row" th:text="${usuario.getId()}"></td>
-<td th:text=${usuario.getUser()}"></td>
+<td th:text="${usuario.getUser()}"></td>
 <td th:text="${usuario.getEmail()}"></td>
 <td><ul>
 <li><a th:href="@{/user/edit(id=${usuario.getId()})}">Editar</a></li>

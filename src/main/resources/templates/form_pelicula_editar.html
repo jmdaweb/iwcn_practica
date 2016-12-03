@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Editar película</title>
+<meta charset="utf-8"/>
+</head>
+<body>
+<header role="banner" aria-label="cabecera">
+<h1>Editar película</h1>
+</header>
+<main role="main" aria-label="contenido principal">
+<p>El siguiente formulario muestra los datos de la película seleccionada. Tras hacer las modificaciones necesarias, pulsa el botón guardar para guardar los cambios. Todos los campos son obligatorios.</p>
+<form role="form" method="post" th:action="@{/peliculas/edit/confirm}">
+<input type="hidden" th:value="${pelicula.getId()}">
+<label for="nombre">Nombre</label>
+<input type="text" id="nombre" name="nombre" required="" aria-required="true" th:value="${pelicula.getNombre()}"/>
+<label for="anio">Año</label>
+<input type="number" required="" aria-required="true" id="anio" name="anio" th:value="${pelicula.getAnio()}"/>
+<label for="director">Director</label>
+<input type="text" name="director" id="director" required="" aria-required="true" th:value="${pelicula.getDirector()}"/>
+<label for="reparto">Reparto</label>
+<input type="text" id="reparto" name="reparto" required="" aria-required="true" th:value="${pelicula.getReparto()}"/>
+<label for="descripcion">Descripción</label>
+<textarea id="descripcion" name="descripcion" required="" aria-required="true" th:text="${pelicula.getDescripcion()}"></textarea>
+<label for="valoracion">Valoración</label>
+<input type="text" id="valoracion" name="valoracion" required="" aria-required="true" th:value="${pelicula.getValoracion()}"/>
+<label for="url_portada">URL de la portada</label>
+<input type="text" id="url_portada" name="url_portada" required="" aria-required="true" th:value="${pelicula.getUrl_portada()}"/>
+<label for="url_streaming">URL del streaming de la película</label>
+<input type="text" id="url_streaming" name="url_streaming" required="" aria-required="true" th:value="${pelicula.getUrl_streaming()}"/>
+<input type="submit" value="Guardar"/>
+<a href="/peliculas">Cancelar</a>
+</form>
+</main>
+</body>
+</html>
