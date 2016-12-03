@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Lista de películas</title>
+</head>
+<body>
+<header role="banner" aria-label="cabecera">
+<h1>Lista de películas</h1>
+</header>
+<main role="main" aria-label="Contenido principal">
+<p><a href="/peliculas/buscar">Agregar una nueva película</a></p>
+<table>
+<caption>Lista de películas disponibles</caption>
+<thead>
+<tr>
+<th scope="col">Id</th>
+<th scope="col">Nombre</th>
+<th scope="col">Año</th>
+<th scope="col">Director</th>
+<th scope="col">Opciones</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="pelicula : ${peliculas}">
+<td scope="row" th:text="${pelicula.getId()}"></td>
+<td><a th:href="@{/pelicula(id=${pelicula.getId()})}" th:text="${pelicula.getNombre()}"></a></td>
+<td th:text="${pelicula.getAnio()}"></td>
+<td th:text="${pelicula.getDirector()}"></td>
+<td><ul>
+<li><a th:href="@{/peliculas/edit(id=${pelicula.getId()})}">Editar</a></li>
+<li><a th:href="@{/peliculas/delete(id=${usuario.getId()})}">Eliminar</a></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+</main>
+</body>
+</html>

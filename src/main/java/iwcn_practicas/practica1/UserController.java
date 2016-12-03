@@ -47,7 +47,7 @@ public class UserController{
 	@Secured({"ROLE_ADMIN"})
 	@RequestMapping("/users/edit")
 	public ModelAndView form_editar(@RequestParam long id){
-		return new ModelAndView("form_usuario_editar").addObject(usuarios.getUser(id)).addObject(usuarios.isAdmin(id));
+		return new ModelAndView("form_usuario_editar").addObject("usuario", usuarios.getUser(id)).addObject("admin", usuarios.isAdmin(id));
 	}
 	@Secured({"ROLE_ADMIN"})
 	@RequestMapping("/users/edit/confirm")

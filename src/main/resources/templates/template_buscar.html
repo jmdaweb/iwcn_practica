@@ -1,56 +1,43 @@
-<!DOCTYPE html>
-<html class="login-page" xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-
-		<title>Cinema DB</title>
-
-		<link rel="stylesheet" href="../static/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../static/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="../static/css/style.css" />
-	</head>
-	<body>
-		<nav class="navbar navbar-inverse">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Alternar navegación</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Cinema DB</a>
-				</div>
-				<div id="navbar" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-
-		<div class="container">
-			<div class="row">
-				<p class="col-md-12"><b>Resultados de la búsqueda:</b></p>
-				<table class="table col-md-12">
-					<tbody>
-						<tr>
-							<td>Aquí iría el bucle que pinta la tabla con los resultados de Thymeleaf</td>
-							<td><button type="button" class="btn btn-primary">Ver</button></td>
-						</tr>
-						<tr>
-							<td>Aquí iría el bucle que pinta la tabla con los resultados de Thymeleaf</td>
-							<td><button type="button" class="btn btn-primary">Ver</button></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-
-		<script type="text/javascript" src="../static/js/jquery.min.js"></script>
-		<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
-	</body>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Resultados de la búsqueda</title>
+<meta charset="utf-8"/>
+</head>
+<body>
+<header role="banner" aria-label="cabecera">
+<h1>Resultados de la búsqueda</h1>
+</header>
+<main role="main" aria-label="contenido principal">
+<section class="resultado" role="region" aria-label="Película" th:each="pelicula : ${peliculas}">
+<h2 th:text="${pelicula.getTitle()}"></h2>
+<dl>
+<dt>Id</dt>
+<dd th:text="${pelicula.getId()}"></dd>
+<dt>Año</dt>
+<dd th:text="${pelicula.getYear()}"></dd>
+<dt>Reparto</dt>
+<dd th:text="${pelicula.getCast()}"></dd>
+<dt>Director</dt>
+<dd th:text="${pelicula.getDirectors()}"></dd>
+<dt>Valoración</dt>
+<dd th:text="${pelicula.getRating()}"></dd>
+</dl>
+<img th:src="@{pelicula.getImage()}" alt="Imagen de la película"/>
+<p th:text="${pelicula.getDescription()}"></p>
+<form role="form" method="post" th:action="@{/peliculas/add}">
+<input type="hidden" name="nombre" th:value="${pelicula.getTitle()}"/>
+<input type="hidden" name="anio" th:value="${pelicula.getYear()}"/>
+<input type="hidden" name="director" th:value="${pelicula.getDirectors()}"/>
+<input type="hidden" name="reparto" th:value="${pelicula.getCast()}"/>
+<input type="hidden" name="descripcion" th:value="${pelicula.getDescription()}"/>
+<input type="hidden" name="valoracion" th:value="${pelicula.getRating()}"/>
+<input type="hidden" name="url_portada" th:value="${pelicula.getImage()}"/>
+<label th:for="${pelicula.getId()}">URL del streaming</label>
+<input type="text" required="" aria-required="true" name="url_streaming" th:id="${pelicula.getId()}"/>
+<input type="submit" value="Agregar esta película"/>
+</form>
+</section>
+</main>
+</body>
 </html>

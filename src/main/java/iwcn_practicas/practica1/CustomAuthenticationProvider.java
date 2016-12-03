@@ -17,7 +17,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	private UserRepository userRepository;
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-		System.out.println("CUSTOM AUTHENTICATION PROVIDER " + authentication.getName());
 		String username=authentication.getName();
 		String password=(String)authentication.getCredentials();
 		User user=userRepository.findByUser(username);
@@ -33,6 +32,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	@Override
 	public boolean supports(Class<?> arg0) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 }

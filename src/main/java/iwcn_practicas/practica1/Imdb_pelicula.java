@@ -37,11 +37,11 @@ public class Imdb_pelicula{
 	public String getDescription(){
 		return description;
 	}
-	public String[] getCast(){
-		return cast;
+	public String getCast(){
+		return cast.toString();
 	}
-	public String[] getDirectors(){
-		return directors;
+	public String getDirectors(){
+		return directors.toString();
 	}
 	public String getImage(){
 		return image;

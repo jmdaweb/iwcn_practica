@@ -1,78 +1,16 @@
-<!DOCTYPE html>
-<html class="login-page" xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-
-		<title>Cinema DB</title>
-
-		<link rel="stylesheet" href="../static/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../static/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="../static/css/style.css" />
-	</head>
-	<body>
-		<nav class="navbar navbar-inverse">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Alternar navegación</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Cinema DB</a>
-				</div>
-				<div id="navbar" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-
-		<div class="container">
-			<div class="row">
-				<form>
-					<div class="form-group">
-						<label for="nombre">Nombre</label>
-						<input type="text" class="form-control" id="nombre" name="nombre" />
-					</div>
-					<div class="form-group">
-						<label for="anio">Año</label>
-						<input type="text" class="form-control" id="anio" name="anio" />
-					</div>
-					<div class="form-group">
-						<label for="director">Director</label>
-						<input type="text" class="form-control" id="director" name="director" />
-					</div>
-					<div class="form-group">
-						<label for="reparto">Reparto</label>
-						<input type="text" class="form-control" id="reparto" name="reparto" />
-					</div>
-					<div class="form-group">
-						<label for="descripcion">Descripción</label>
-						<textarea class="form-control" id="descripcion" name="descripcion"></textarea>
-					</div>
-					<div class="form-group">
-						<label for="valoracion">Valoración</label>
-						<input type="text" class="form-control" id="valoracion" name="valoracion" />
-					</div>
-					<div class="form-group">
-						<label for="trailer">URL Trailer</label>
-						<input type="text" class="form-control" id="trailer" name="trailer" />
-					</div>
-					<div class="form-group">
-						<label for="streaming">URL Streaming</label>
-						<input type="text" class="form-control" id="streaming" name="streaming" />
-					</div>
-					<button type="submit" class="btn btn-lg btn-primary btn-block"><i class="fa fa-save"></i> Guardar</button>
-				</form>
-			</div>
-		</div>
-
-		<script type="text/javascript" src="../static/js/jquery.min.js"></script>
-		<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
-	</body>
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Película agregada correctamente</title>
+</head>
+<body>
+<header role="banner" aria-label="cabecera">
+<h1>Película agregada correctamente</h1>
+</header>
+<main role="main" aria-label="contenido principal">
+<p>La película se ha agregado con éxito a la base de datos.<br/>
+<a href="/peliculas">Volver a la lista de películas</a></p>
+</main>
+</body>
 </html>
