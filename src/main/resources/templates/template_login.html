@@ -18,9 +18,9 @@
 		<main role="main" aria-label="Contenido principal">
 	        	<p>La emoción empieza aquí. ¡Inicia sesión ya!</p>
 	            <form class="form-login" method="post" th:action="@{/login}" role="form">
-	<label for="username">Nombre de usuario</label>
+	<label for="username" class="hidden-label">Nombre de usuario</label>
 	                <input type="text" id="username" name="username" class="form-control" placeholder="Usuario" required="" autofocus="true"/>
-	<label for="password">Contraseña</label>
+	<label for="password" class="hidden-label">Contraseña</label>
 	                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required=""/>
 	                <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
 	            </form>
