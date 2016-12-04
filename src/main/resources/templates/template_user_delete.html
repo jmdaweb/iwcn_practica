@@ -14,12 +14,14 @@
 	
 		<div th:replace="fragments/navbar :: navbar"></div>
 		
-		<header role="banner" aria-label="cabecera">
-			<h1>Usuario eliminado correctamente</h1>
-		</header>
-		<main role="main" aria-label="contenido principal">
-			<p>El usuario se ha eliminado con éxito de la base de datos.<br/>
-			<a href="/users">Volver a la lista de usuarios</a></p>
-		</main>
+		<div class="container">
+			<header role="banner" aria-label="cabecera">
+				<h1>Usuario eliminado correctamente</h1>
+			</header>
+			<main role="main" aria-label="contenido principal">
+				<p>El usuario se ha eliminado con éxito de la base de datos.<br/>
+				<a href="/users">Volver a la lista de usuarios</a></p>
+			</main>
+		</div>
 	</body>
 </html>
