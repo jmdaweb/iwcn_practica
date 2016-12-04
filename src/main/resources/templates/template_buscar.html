@@ -9,7 +9,7 @@
 <h1>Resultados de la búsqueda</h1>
 </header>
 <main role="main" aria-label="contenido principal">
-<section class="resultado" role="region" aria-label="Película" th:each="pelicula : ${peliculas}">
+<section class="resultado" role="region" aria-label="Película" th:each="pelicula : ${resultados}">
 <h2 th:text="${pelicula.getTitle()}"></h2>
 <dl>
 <dt>Id</dt>

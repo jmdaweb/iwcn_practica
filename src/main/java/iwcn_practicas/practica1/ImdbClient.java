@@ -11,7 +11,7 @@ public class ImdbClient{
 		servicio=adapter.create(ImdbService.class);
 	}
 	public List<Imdb_pelicula> buscar(String consulta){
-		return servicio.buscar(consulta);
+		return servicio.buscar(consulta).data.titles;
 	}
 	public Imdb_pelicula getPelicula(String consulta){
 		return servicio.getPelicula(consulta);
