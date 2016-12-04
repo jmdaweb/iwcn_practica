@@ -7,7 +7,7 @@ import retrofit.RestAdapter;
 public class ImdbClient{
 	private ImdbService servicio;
 	public ImdbClient(){
-		RestAdapter adapter = new RestAdapter.Builder().setEndpoint("http://imdb.wemakesites.net").build();
+		RestAdapter adapter = new RestAdapter.Builder().setEndpoint("http://imdb.wemakesites.net/api").build();
 		servicio=adapter.create(ImdbService.class);
 	}
 	public List<Imdb_pelicula> buscar(String consulta){

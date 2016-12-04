@@ -5,8 +5,8 @@ import retrofit.http.Path;
 import retrofit.http.Query;
 
 public interface ImdbService{
-	@GET("/api/search")
+	@GET("/search?api_key=4a8e815d-9ab6-435d-b5ec-1b34af79e214")
 	imdb_searchResult buscar(@Query("q") String consulta);
-	@GET("/api/{consulta}")
+	@GET("/{consulta}")
 	Imdb_pelicula getPelicula(@Path("consulta") String consulta);
 }
