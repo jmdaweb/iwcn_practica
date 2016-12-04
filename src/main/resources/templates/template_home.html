@@ -16,7 +16,7 @@
 		<div class="search-container">
 			<div class="search-box">
 				<p>¡No esperes más! Utiliza el buscador para encontrar tu película</p>
-				<form>
+				<form role="search" method="post" th:action="@{/peliculas/buscar/resultados}">
 					<div class="form-group">
 						<label for="search" class="hidden-label">Criterio de búsqueda</label>
 						<input type="text" id="search" name="search" class="form-control" placeholder="Buscar película" />
