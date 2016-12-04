@@ -19,7 +19,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		String username=authentication.getName();
 		String password=(String)authentication.getCredentials();
-		User user=userRepository.findByUser(username);
+		User user=userRepository.findByName(username);
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
 		}

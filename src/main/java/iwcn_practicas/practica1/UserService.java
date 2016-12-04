@@ -50,7 +50,7 @@ public class UserService{
 	
 	public void actualizar(long id, String nombre, String clave, String email, List<GrantedAuthority> roles){
 		User u=getUser(id);
-		u.setUser(nombre);
+		u.setName(nombre);
 		u.setPassword(clave);
 		u.setEmail(email);;
 		u.setRoles(roles);
