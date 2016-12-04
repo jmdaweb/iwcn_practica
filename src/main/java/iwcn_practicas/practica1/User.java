@@ -17,42 +17,54 @@ public class User{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String user;
+	private String name;
 	private String password;
+	
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<GrantedAuthority> roles;
 	private String email;
+	
 	public User(){}
-	public User(String user, String password, String email, List<GrantedAuthority> roles){
-		this.user=user;
+	
+	public User(String name, String password, String email, List<GrantedAuthority> roles){
+		this.name=name;
 		this.password=new BCryptPasswordEncoder().encode(password);
 		this.email=email;
 		this.roles=roles;
 	}
-	public String getUser(){
-		return user;
+	
+	public String getName(){
+		return this.name;
 	}
+	
 	public long getId(){
-		return id;
+		return this.id;
 	}
-	public void setUser(String user){
-		this.user=user;
+	
+	public void setName(String name){
+		this.name=name;
 	}
+	
 	public void setPassword(String password){
 		this.password=new BCryptPasswordEncoder().encode(password);
 	}
+	
 	public List<GrantedAuthority> getRoles(){
 		return roles;
 	}
+	
 	public void setRoles(List<GrantedAuthority> roles){
 		this.roles=roles;
 	}
+	
 	public String getPasswordHash(){
 		return password;
 	}
+	
 	public String getEmail(){
 		return email;
 	}
+	
 	public void setEmail(String email){
 		this.email=email;
 	}
