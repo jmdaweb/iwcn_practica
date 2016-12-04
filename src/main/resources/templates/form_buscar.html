@@ -19,10 +19,12 @@
 			</header>
 			<main role="main" aria-label="contenido principal">
 				<p>Introduce tu consulta en el siguiente cuadro de búsqueda.</p>
-				<form role="search" method="post" th:action="@{/peliculas/buscar/resultados}">
-					<label for="consulta">Buscar:</label>
-					<input type="search" required="" aria-required="true" id="consulta" name="consulta"/>
-					<input type="submit" value="Buscar"/>
+				<form class="form-inline" role="search" method="post" th:action="@{/peliculas/buscar/resultados}">
+					<div class="form-group">
+						<label for="consulta">Buscar:</label>
+						<input class="form-control" type="search" required="true" aria-required="true" id="consulta" name="consulta"/>
+					</div>
+					<input type="submit" class="btn btn-success" value="Buscar"/>
 				</form>
 			</main>
 		</div>
