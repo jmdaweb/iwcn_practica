@@ -1,20 +1,30 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Buscar películas</title>
-<meta charset="utf-8"/>
-</head>
-<body>
-<header role="banner" aria-label="cabecera">
-<h1>Buscar películas</h1>
-</header>
-<main role="main" aria-label="contenido principal">
-<p>Introduce tu consulta en el siguiente cuadro de búsqueda.</p>
-<form role="search" method="post" th:action="@{/peliculas/buscar/resultados}">
-<label for="consulta">Buscar:</label>
-<input type="search" required="" aria-required="true" id="consulta" name="consulta"/>
-<input type="submit" value="Buscar"/>
-</form>
-</main>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+		<title>Cinema DB</title>
+
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
+	<body>
+		<div th:replace="fragments/navbar :: navbar"></div>
+		
+		<div class="container">
+			<header role="banner" aria-label="cabecera">
+				<h1>Buscar películas</h1>
+			</header>
+			<main role="main" aria-label="contenido principal">
+				<p>Introduce tu consulta en el siguiente cuadro de búsqueda.</p>
+				<form role="search" method="post" th:action="@{/peliculas/buscar/resultados}">
+					<label for="consulta">Buscar:</label>
+					<input type="search" required="" aria-required="true" id="consulta" name="consulta"/>
+					<input type="submit" value="Buscar"/>
+				</form>
+			</main>
+		</div>
+	</body>
 </html>
