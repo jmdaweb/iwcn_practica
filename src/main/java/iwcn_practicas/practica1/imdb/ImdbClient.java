@@ -13,7 +13,7 @@ public class ImdbClient{
 	public List<imdb_title> buscar(String consulta){
 		return servicio.buscar(consulta).data.results.titles;
 	}
-	public Imdb_pelicula getPelicula(String consulta){
-		return servicio.getPelicula(consulta);
+	public imdb_pelicula getPelicula(String consulta){
+		return servicio.getPelicula(consulta).data;
 	}
 }
