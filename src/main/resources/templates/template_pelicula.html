@@ -1,38 +1,48 @@
 <!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Información de la película</title>
-<meta charset="utf-8"/>
-</head>
-<body>
-<header role="banner" aria-label="cabecera">
-<h1>Información de la película</h1>
-</header>
-<main role="main" aria-label="contenido principal">
-<section aria-label="ficha" role="region">
-<h2>Detalles</h2>
-<dl>
-<dt>Título</dt>
-<dd th:text="${pelicula.getNombre()}"></dd>
-<dt>Año</dt>
-<dd th:text="${pelicula.getAnio()}"></dd>
-<dt>Director</dt>
-<dd th:text="${pelicula.getDirector()}"></dd>
-<dt>Reparto</dt>
-<dd th:text="${pelicula.getReparto()}"></dd>
-<dt>Valoración</dt>
-<dd th:text="${pelicula.getValoracion()}"></dd>
-</dl>
-<div id="portada">
-<img th:src="${pelicula.getUrl_portada()}" alt="Portada de la película"/>
-</div>
-<h3>Sinopsis</h3>
-<p th:text="${pelicula.getDescripcion()}"></p>
-</section>
-<section role="region" aria-label="reproductor">
-<h2>Reproducción</h2>
-<iframe title="Reproductor de la película" th:src="${pelicula.getUrl_streaming()}"></iframe>
-</section>
-</main>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+		<title>Cinema DB</title>
+
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
+	<body>
+		<div th:replace="fragments/navbar :: navbar"></div>
+		
+		<div class="container">
+			<header role="banner" aria-label="cabecera">
+				<h1>Información de la película</h1>
+			</header>
+			<main role="main" aria-label="contenido principal">
+				<section aria-label="ficha" role="region">
+					<h2>Detalles</h2>
+					<dl>
+						<dt>Título</dt>
+							<dd th:text="${pelicula.getNombre()}"></dd>
+						<dt>Año</dt>
+							<dd th:text="${pelicula.getAnio()}"></dd>
+						<dt>Director</dt>
+							<dd th:text="${pelicula.getDirector()}"></dd>
+						<dt>Reparto</dt>
+							<dd th:text="${pelicula.getReparto()}"></dd>
+						<dt>Valoración</dt>
+							<dd th:text="${pelicula.getValoracion()}"></dd>
+					</dl>
+					<div id="portada">
+						<img th:src="${pelicula.getUrl_portada()}" alt="Portada de la película"/>
+					</div>
+					<h3>Sinopsis</h3>
+					<p th:text="${pelicula.getDescripcion()}"></p>
+				</section>
+				<section role="region" aria-label="reproductor">
+					<h2>Reproducción</h2>
+					<iframe title="Reproductor de la película" th:src="${pelicula.getUrl_streaming()}"></iframe>
+				</section>
+				</main>
+			</div>
+		</body>
 </html>
