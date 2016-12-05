@@ -24,14 +24,14 @@
 <dd th:text="${pelicula.getValoracion()}"></dd>
 </dl>
 <div id="portada">
-<img th:src="@{pelicula.getUrl_portada()}" alt="Portada de la película"/>
+<img th:src="${pelicula.getUrl_portada()}" alt="Portada de la película"/>
 </div>
 <h3>Sinopsis</h3>
 <p th:text="${pelicula.getDescripcion()}"></p>
 </section>
 <section role="region" aria-label="reproductor">
 <h2>Reproducción</h2>
-<iframe title="Reproductor de la película" th:src="@{pelicula.getUrl_streaming()}"></iframe>
+<iframe title="Reproductor de la película" th:src="${pelicula.getUrl_streaming()}"></iframe>
 </section>
 </main>
 </body>
