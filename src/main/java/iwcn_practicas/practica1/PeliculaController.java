@@ -35,13 +35,13 @@ public class PeliculaController{
 	@RequestMapping("/peliculas/add")
 	public ModelAndView agregar(@RequestParam String id, @RequestParam String url_streaming){
 		imdb_pelicula p=cliente.getPelicula(id);
-		String nombre=p.title;
-		String anio=p.year;
-		String director=p.directors.toString();
-		String reparto=p.cast.toString();
-		String descripcion=p.description;
-		String valoracion=p.rating;
-		String url_portada=p.image;
+		String nombre = (p.title == null) ? "No determinado" : p.title;
+		String anio = (p.year == null) ? "" : p.year;
+		String director = p.directors.toString();
+		String reparto = p.cast.toString();
+		String descripcion = p.description;
+		String valoracion = p.rating;
+		String url_portada = p.image;
 		peliculas.agregar(nombre, anio, director, reparto, descripcion, valoracion, url_portada, url_streaming);
 		return new ModelAndView("template_pelicula_agregar");
 	}
