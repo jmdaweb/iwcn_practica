@@ -1,4 +1,4 @@
-package iwcn_practicas.practica1;
+package iwcn_practicas.practica1.imdb;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ public class ImdbClient{
 		RestAdapter adapter = new RestAdapter.Builder().setEndpoint("http://imdb.wemakesites.net/api").build();
 		servicio=adapter.create(ImdbService.class);
 	}
-	public List<Imdb_pelicula> buscar(String consulta){
-		return servicio.buscar(consulta).data.titles;
+	public List<imdb_title> buscar(String consulta){
+		return servicio.buscar(consulta).data.results.titles;
 	}
 	public Imdb_pelicula getPelicula(String consulta){
 		return servicio.getPelicula(consulta);

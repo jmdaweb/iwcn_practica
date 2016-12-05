@@ -1,4 +1,4 @@
-package iwcn_practicas.practica1;
+package iwcn_practicas.practica1.imdb;
 
 import java.util.List;
 
