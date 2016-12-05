@@ -11,7 +11,7 @@
 <main role="main" aria-label="contenido principal">
 <p>El siguiente formulario muestra los datos de la película seleccionada. Tras hacer las modificaciones necesarias, pulsa el botón guardar para guardar los cambios. Todos los campos son obligatorios.</p>
 <form role="form" method="post" th:action="@{/peliculas/edit/confirm}">
-<input type="hidden" th:value="${pelicula.getId()}">
+<input type="hidden" th:value="${pelicula.getId()}" name="id"/>
 <label for="nombre">Nombre</label>
 <input type="text" id="nombre" name="nombre" required="" aria-required="true" th:value="${pelicula.getNombre()}"/>
 <label for="anio">Año</label>
