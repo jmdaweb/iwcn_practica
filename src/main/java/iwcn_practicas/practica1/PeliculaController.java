@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import iwcn_practicas.practica1.imdb.ImdbClient;
+import iwcn_practicas.practica1.imdb.imdb_pelicula;
 
 @Controller
 public class PeliculaController{
 	@Autowired
 	private PeliculaService peliculas;
+	@Autowired
+	private ImdbClient cliente;
 	@Secured({"ROLE_USER", "ROLE_ADMIN"})
 	@RequestMapping("/peliculas")
 	public ModelAndView listar(){
@@ -31,7 +34,15 @@ public class PeliculaController{
 	}
 	@Secured({"ROLE_ADMIN"})
 	@RequestMapping("/peliculas/add")
-	public ModelAndView agregar(@RequestParam String nombre, @RequestParam int anio, @RequestParam String director, @RequestParam String reparto, @RequestParam String descripcion, @RequestParam String valoracion, @RequestParam String url_portada, @RequestParam String url_streaming){
+	public ModelAndView agregar(@RequestParam String id, @RequestParam String url_streaming){
+		imdb_pelicula p=cliente.getPelicula(id);
+		String nombre=p.title;
+		int anio=Integer.parseInt(p.year);
+		String director=p.directors.toString();
+		String reparto=p.cast.toString();
+		String descripcion=p.description;
+		String valoracion=p.rating;
+		String url_portada=p.image;
 		peliculas.agregar(nombre, anio, director, reparto, descripcion, valoracion, url_portada, url_streaming);
 		return new ModelAndView("template_pelicula_agregar");
 	}
@@ -54,7 +65,6 @@ public class PeliculaController{
 	@Secured({"ROLE_ADMIN"})
 	@RequestMapping("/peliculas/buscar/resultados")
 	public ModelAndView buscar(@RequestParam String consulta){
-		ImdbClient cliente=new ImdbClient();
 		return new ModelAndView("template_buscar").addObject("resultados", cliente.buscar(consulta));
 	}
 }
