@@ -1,5 +1,7 @@
 package iwcn_practicas.practica1;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -37,8 +39,8 @@ public class PeliculaController{
 		imdb_pelicula p=cliente.getPelicula(id);
 		String nombre = (p.title == null) ? "No determinado" : p.title;
 		String anio = (p.year == null) ? "" : p.year;
-		String director = p.directors.toString();
-		String reparto = p.cast.toString();
+		String director = Arrays.toString(p.directors);
+		String reparto = Arrays.toString(p.cast);
 		String descripcion = p.description;
 		String valoracion = p.rating;
 		String url_portada = p.image;
