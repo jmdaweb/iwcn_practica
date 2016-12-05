@@ -14,8 +14,7 @@ import iwcn_practicas.practica1.imdb.imdb_pelicula;
 public class PeliculaController{
 	@Autowired
 	private PeliculaService peliculas;
-	@Autowired
-	private ImdbClient cliente;
+	private ImdbClient cliente=new ImdbClient();
 	@Secured({"ROLE_USER", "ROLE_ADMIN"})
 	@RequestMapping("/peliculas")
 	public ModelAndView listar(){
