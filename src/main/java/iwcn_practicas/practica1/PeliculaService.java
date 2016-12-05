@@ -13,7 +13,7 @@ public class PeliculaService{
 	private void init(){
 		
 	}
-	public void agregar(String nombre, int anio, String director, String reparto, String descripcion, String valoracion, String url_portada, String url_streaming){
+	public void agregar(String nombre, String anio, String director, String reparto, String descripcion, String valoracion, String url_portada, String url_streaming){
 		peliculas.save(new Pelicula(nombre, anio, director, reparto, descripcion, valoracion, url_portada, url_streaming));
 	}
 	public Pelicula getPelicula(long id){
@@ -22,10 +22,10 @@ public class PeliculaService{
 	public Iterable<Pelicula> listar(){
 		return peliculas.findAll();
 	}
-	public void actualizar(long id, String nombre, int anio, String director, String reparto, String descripcion, String valoracion, String url_portada, String url_streaming){
+	public void actualizar(long id, String nombre, String anio, String director, String reparto, String descripcion, String valoracion, String url_portada, String url_streaming){
 		Pelicula p=getPelicula(id);
 		p.setNombre(nombre);;
-		p.setAnio(anio);;
+		p.setAnio(anio);
 		p.setDirector(director);
 		p.setReparto(reparto);
 		p.setDescripcion(descripcion);

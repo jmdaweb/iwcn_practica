@@ -36,7 +36,7 @@ public class PeliculaController{
 	public ModelAndView agregar(@RequestParam String id, @RequestParam String url_streaming){
 		imdb_pelicula p=cliente.getPelicula(id);
 		String nombre=p.title;
-		int anio=Integer.parseInt(p.year);
+		String anio=p.year;
 		String director=p.directors.toString();
 		String reparto=p.cast.toString();
 		String descripcion=p.description;
@@ -52,7 +52,7 @@ public class PeliculaController{
 	}
 	@Secured({"ROLE_ADMIN"})
 	@RequestMapping("/peliculas/edit/confirm")
-	public ModelAndView editar(@RequestParam long id, @RequestParam String nombre, @RequestParam int anio, @RequestParam String director, @RequestParam String reparto, @RequestParam String descripcion, @RequestParam String valoracion, @RequestParam String url_portada, @RequestParam String url_streaming){
+	public ModelAndView editar(@RequestParam long id, @RequestParam String nombre, @RequestParam String anio, @RequestParam String director, @RequestParam String reparto, @RequestParam String descripcion, @RequestParam String valoracion, @RequestParam String url_portada, @RequestParam String url_streaming){
 		peliculas.actualizar(id, nombre, anio, director, reparto, descripcion, valoracion, url_portada, url_streaming);
 		return new ModelAndView("template_pelicula_editar");
 	}

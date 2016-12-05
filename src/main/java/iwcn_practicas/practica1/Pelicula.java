@@ -13,13 +13,13 @@ public class Pelicula{
 	private String nombre;
 	private String director;
 	private String reparto;
-	private int anio;
+	private String anio;
 	private String valoracion;
 	private String descripcion;
 	private String url_portada;
 	private String url_streaming;
 	public Pelicula(){}
-	public Pelicula(String nombre, int anio, String director, String reparto, String descripcion, String valoracion, String url_portada, String url_streaming){
+	public Pelicula(String nombre, String anio, String director, String reparto, String descripcion, String valoracion, String url_portada, String url_streaming){
 		this.nombre=nombre;
 		this.anio=anio;
 		this.director=director;
@@ -32,7 +32,7 @@ public class Pelicula{
 	public String getNombre(){
 		return nombre;
 	}
-	public int getAnio(){
+	public String getAnio(){
 		return anio;
 	}
 	public String getDirector(){
@@ -56,7 +56,7 @@ public class Pelicula{
 	public void setNombre(String nombre){
 		this.nombre=nombre;
 	}
-	public void setAnio(int anio){
+	public void setAnio(String anio){
 		this.anio=anio;
 	}
 	public void setDirector(String director){
