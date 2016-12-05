@@ -21,14 +21,20 @@
 			
 			<main role="main" aria-label="contenido principal">
 				<section class="resultado" role="region" aria-label="Película" th:each="pelicula : ${resultados}">
-					<h2 th:text="${pelicula.title}"></h2>
-					<img th:src="${pelicula.thumbnail}" alt="Imagen de la película"/>
-					<form role="form" method="post" th:action="@{/peliculas/add}">
-						<input type="hidden" name="id" th:value="${pelicula.id}"/>
-						<label th:for="${pelicula.id}">URL del streaming</label>
-						<input type="text" required="" aria-required="true" name="url_streaming" th:id="${pelicula.id}"/>
-						<input type="submit" value="Agregar esta película"/>
-					</form>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2 th:text="${pelicula.title}"></h2>
+						</div>
+						<div class="panel-body">
+							<img th:src="${pelicula.thumbnail}" alt="Imagen de la película"/>
+							<form role="form" method="post" th:action="@{/peliculas/add}">
+								<input type="hidden" name="id" th:value="${pelicula.id}"/>
+								<label th:for="${pelicula.id}">URL del streaming: </label>
+								<input type="text" required="" aria-required="true" name="url_streaming" th:id="${pelicula.id}"/>
+								<input class="btn btn-success btn-small" type="submit" value="Agregar esta película"/>
+							</form>
+						</div>
+					</div>
 				</section>
 			</main>
 		</div>
