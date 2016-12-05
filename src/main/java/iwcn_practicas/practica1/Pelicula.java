@@ -1,5 +1,6 @@
 package iwcn_practicas.practica1;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,7 @@ public class Pelicula{
 	private String reparto;
 	private String anio;
 	private String valoracion;
+	@Column(length=1024)
 	private String descripcion;
 	private String url_portada;
 	private String url_streaming;
@@ -76,5 +78,8 @@ public class Pelicula{
 	}
 	public void setUrl_streaming(String url){
 		this.url_streaming=url;
+	}
+	public long getId(){
+		return id;
 	}
 }
