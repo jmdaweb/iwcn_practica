@@ -18,7 +18,7 @@
 				<h1>Lista de películas</h1>
 			</header>
 			<main role="main" aria-label="Contenido principal">
-				<a class="btn btn-primary" href="/peliculas/buscar"><i class="fa fa-plus"></i> Nueva película</a>
+				<a th:if="${admin}" class="btn btn-primary" href="/peliculas/buscar"><i class="fa fa-plus"></i> Nueva película</a>
 				
 				<table class="table table-striped">
 					<caption>Lista de películas disponibles</caption>
@@ -28,7 +28,7 @@
 							<th scope="col">Nombre</th>
 							<th scope="col">Año</th>
 							<th scope="col">Director</th>
-							<th scope="col">Opciones</th>
+							<th th:if="${admin}" scope="col">Opciones</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -37,7 +37,7 @@
 							<td><a th:href="@{/pelicula(id=${pelicula.getId()})}" th:text="${pelicula.getNombre()}"></a></td>
 							<td th:text="${pelicula.getAnio()}"></td>
 							<td th:text="${pelicula.getDirector()}"></td>
-							<td>
+							<td th:if="${admin}">
 								<ul>
 									<li><a th:href="@{/peliculas/edit(id=${pelicula.getId()})}">Editar</a></li>
 									<li><a th:href="@{/peliculas/delete(id=${pelicula.getId()})}">Eliminar</a></li>
