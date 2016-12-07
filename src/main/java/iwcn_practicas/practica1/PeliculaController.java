@@ -20,7 +20,7 @@ public class PeliculaController{
 	@Secured({"ROLE_USER", "ROLE_ADMIN"})
 	@RequestMapping("/peliculas")
 	public ModelAndView listar(){
-		return new ModelAndView("template_peliculas").addObject("peliculas", peliculas.listar()).addObject("admin", UserService.isAdmin());
+		return new ModelAndView("template_peliculas").addObject("peliculas", peliculas.listar());
 	}
 	@Secured({"ROLE_USER", "ROLE_ADMIN"})
 	@RequestMapping("/pelicula")
