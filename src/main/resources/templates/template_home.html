@@ -15,14 +15,15 @@
 
 		<div class="search-container">
 			<div class="search-box">
-				<p>¡No esperes más! Utiliza el buscador para encontrar tu película</p>
-				<form role="search" method="post" th:action="@{/peliculas/buscar/resultados}">
+				<form role="search" method="post" th:action="@{/peliculas/buscar/resultados}" sec:authorize="hasRole('ROLE_ADMIN')">
 					<div class="form-group">
-						<label for="consulta" class="hidden-label">Criterio de búsqueda</label>
+						<label for="consulta" class="hidden-label">Añadir película</label>
 						<input type="text" id="consulta" name="consulta" class="form-control" placeholder="Buscar película" />
 					</div>
 					<button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fa fa-search"></i> Buscar</button>
 				</form>
+				<p>¡No esperes más! Acceder ya a la lista de películas</p>
+				<a class="btn btn-lg btn-success btn-block" href="/peliculas/buscar"><i class="fa fa-film"></i> LISTA DE PELÍCULAS</a>
 			</div>
 		</div>
 
