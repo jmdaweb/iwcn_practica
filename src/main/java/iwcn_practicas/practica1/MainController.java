@@ -24,6 +24,6 @@ public class MainController{
 	@RequestMapping("/home")
 	public ModelAndView home(){
 		//se muestra la home que ve el usuario tras hacer login
-		return new ModelAndView("template_home");
+		return new ModelAndView("template_home").addObject("admin", UserService.isAdmin());
 	}
 }
