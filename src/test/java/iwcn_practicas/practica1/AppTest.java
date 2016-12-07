@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -29,7 +30,9 @@ public class AppTest{
 	}
 	@Before
 	public void setupTest(){
-		driver=new ChromeDriver();
+		ChromeOptions opciones=new ChromeOptions();
+		opciones.setBinary("D:"+File.separator+"GoogleChromePortable64"+File.separator+"GoogleChromePortable.exe");
+		driver=new ChromeDriver(opciones);
 	}
 	@After
 	public void teardown(){
@@ -40,6 +43,10 @@ public class AppTest{
 	@Test
 	public void test(){
 		driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
-		
+		driver.get("http://localhost:8080/login");
+		driver.findElement(By.id("username")).sendKeys("Administrador");
+		driver.findElement(By.id("password")).sendKeys("admin");
+		driver.findElement(By.tagName("button")).click();
+		Assert.assertTrue(ExpectedConditions.textToBePresentInElementLocated(By.className("btn-success"), "LISTA DE PELÍCULAS").apply(driver));
 	}
 }
