@@ -1,5 +1,8 @@
 package iwcn_practicas.practica1;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,16 @@ public class PeliculaService{
 		
 	}
 	public void agregar(String nombre, String anio, String director, String reparto, String descripcion, String valoracion, String url_portada, String url_streaming){
+		try {
+			URI uri = new URI(url_streaming);
+			
+			if (uri.getHost().toLowerCase().contains("youtube")) {
+				url_streaming = url_streaming.replace("watch", "watch_popup");
+			}
+		} catch (URISyntaxException e) {
+			System.out.println(e.getMessage());
+		}
+		
 		peliculas.save(new Pelicula(nombre, anio, director, reparto, descripcion, valoracion, url_portada, url_streaming));
 	}
 	public Pelicula getPelicula(long id){
