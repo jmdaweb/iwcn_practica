@@ -40,7 +40,7 @@
 				</section>
 				<section role="region" aria-label="reproductor">
 					<h2>Reproducción</h2>
-					<iframe title="Reproductor de la película" th:src="${pelicula.getUrl_streaming()}"></iframe>
+					<a class="btn btn-success btn-large btn-block" th:href="${pelicula.getUrl_streaming()}" target="_new"><i class="fa fa-play"></i> VER PELÍCULA</a>
 				</section>
 				</main>
 			</div>
