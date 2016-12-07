@@ -29,6 +29,7 @@
 							<img th:src="${pelicula.thumbnail}" alt="Imagen de la película"/>
 							<form role="form" method="post" th:action="@{/peliculas/add}">
 								<input type="hidden" name="id" th:value="${pelicula.id}"/>
+								<input type="hidden" name="title" th:value="${pelicula.title}"/>
 								<label th:for="${pelicula.id}">URL del streaming: </label>
 								<input type="text" required="" aria-required="true" name="url_streaming" th:id="${pelicula.id}"/>
 								<input class="btn btn-success btn-small" type="submit" value="Agregar esta película"/>

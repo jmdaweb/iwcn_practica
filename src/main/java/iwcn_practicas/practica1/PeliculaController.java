@@ -35,9 +35,9 @@ public class PeliculaController{
 	}
 	@Secured({"ROLE_ADMIN"})
 	@RequestMapping("/peliculas/add")
-	public ModelAndView agregar(@RequestParam String id, @RequestParam String url_streaming){
+	public ModelAndView agregar(@RequestParam String id, @RequestParam String title, @RequestParam String url_streaming){
 		imdb_pelicula p=cliente.getPelicula(id);
-		String nombre = (p.title == null) ? "No determinado" : p.title;
+		String nombre = (p.title == null) ? title : p.title;
 		String anio = (p.year == null) ? "" : p.year;
 		String director = Arrays.toString(p.directors);
 		String reparto = Arrays.toString(p.cast);
