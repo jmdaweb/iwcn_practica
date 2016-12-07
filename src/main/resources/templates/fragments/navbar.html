@@ -19,6 +19,8 @@
 					<ul class="nav navbar-nav">
 						<li><a href="/home">Inicio</a></li>
 						<li><a href="/peliculas">Películas</a></li>
+						<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/peliculas/buscar">Explorar</a></li>
+						<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/users">Usuarios</a></li>
 						<li><a href="/logout">Cerrar sesión</a></li>
 					</ul>
 				</div>
